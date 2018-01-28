@@ -22,27 +22,23 @@
             <?php endif;?>
             <div class="row">
                 <div class="col-lg-12">      
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-user-list">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-ticket-list">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>Ticket List</th>
                                 <th>Role</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($users  as $row): ?>
+                            <?php foreach($tickets  as $row): ?>
                             <tr>
-                                <td><?php echo $row->name; ?></td> 
-                                <td><?php echo $row->email; ?></td>
+                                <td><?php echo $row->ticket_code; ?></td>
                                 <td><?php echo ucfirst($row->role) ?></td> 
                                 
                                 <td>
-                                    <a class="btn btn-primary" id="user-edit"  onclick="edit_user_popup('<?=$row->email?>','<?=$row->user_id?>','<?=$row->name?>','<?=$row->role?>');" data-toggle="modal" data-target="#editUser"> EDIT </a>
-                                    <a class="btn btn-warning" id="user-riset" onclick="reset_confirmation('<?=$row->email?>','<?=$row->user_id?>')" data-toggle="modal" data-target="#resetConfirm"> RESET </a>
-                                    <a class="btn btn-danger" id="user-delete" onclick="deactivate_confirmation('<?=$row->email?>','<?=$row->user_id?>');" data-toggle="modal" data-target="#deactivateConfirm"> DELETE </a>
-                                    
+                                    <a class="btn btn-primary" id="ticket-edit"  onclick="edit_ticket_popup('<?=$row->ticket_code?>','<?=$row->ticket_id?>','<?=$row->ticket_code?>','<?=$row->role?>');" data-toggle="modal" data-target="#editticket"> EDIT </a>
+                                    <a class="btn btn-danger" id="ticket-delete" onclick="deactivate_confirmation('<?=$row->ticket_code?>','<?=$row->ticket_id?>');" data-toggle="modal" data-target="#deactivateConfirm"> DELETE </a>
                                 </td>
 
                             </tr>
@@ -52,7 +48,7 @@
                     </table>
 
                     <div class="col-lg-12" style="position:fixed;bottom: 5%;left: 88%; width: 150px;text-align: center;border-radius: 100%;">
-                        <img class="add_user" src="<?=base_url()?>assets/images/add.png" data-toggle="modal" data-target="#addUser" />
+                        <img class="add_ticket" src="<?=base_url()?>assets/images/add.png" data-toggle="modal" data-target="#addticket" />
                     </div>
 
                 </div>
@@ -72,7 +68,7 @@
                         <h4 class="modal-title" id="myModalLabel">DELETE CONFIRMATION</h4>
                     </div>
                     <div class="modal-body">
-                        <label>You are going to delete user <label id="user-email" style="color:blue;"></label>.</label><br/>
+                        <label>You are going to delete ticket <label id="ticket-email" style="color:blue;"></label>.</label><br/>
                         <label>Click <b>Yes</b> to continue.</label>
                     </div>
                     <div class="modal-footer">
@@ -86,39 +82,13 @@
         </div>
         <!-- /.modal -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="resetConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header modal-red">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">RESET CONFIRMATION</h4>
-                    </div>
-                    <div class="modal-body">
-                        <label>You are going to reset user <label id="reset-user-email" style="color:blue;"></label>'s password.</label><br/>
-                        <label>Tempolary password will be sent to this email.</label><br/>
-                        <label>Click <b>Yes</b> to continue.</label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a id="resetYesButton" class="btn btn-warning" >Yes</a>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
-
-
-
-        <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        <div class="modal fade" id="addticket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header modal-blue">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">CREATE NEW USER</h4>
+                        <h4 class="modal-title" id="myModalLabel">CREATE NEW TICKET</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -133,9 +103,9 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Email</label> &nbsp;&nbsp;
-                                    <label class="error" id="error_email"> field is required.</label>
-                                    <label class="error" id="error_email2"> email has already existed.</label>
-                                    <label class="error" id="error_email3"> invalid email adress.</label>
+                                    <label class="error" id="error_ticket_code"> field is required.</label>
+                                    <label class="error" id="error_ticket_code2"> Ticket code has already existed.</label>
+                                    <label class="error" id="error_ticket_code3"> invalid ticket code adress.</label>
                                     <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div> 
                             </div>
@@ -148,7 +118,7 @@
                                     <select name="role" id="role" class="form-control" >
                                         <option value="0" selected="selected">-- SELECT ROLE --</option>
                                         <option value="admin">Admin</option>
-                                        <option value="user">User</option>
+                                        <option value="ticket">ticket</option>
                                     </select> 
                                 </div>
                             </div>
@@ -157,7 +127,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        <button id="newUserSubmit" type="button" class="btn btn-primary">CREATE</button>
+                        <button id="newticketSubmit" type="button" class="btn btn-primary">CREATE</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -167,31 +137,23 @@
         <!-- /.modal -->
 
 
-        <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editticket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header modal-blue">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">UPDATE USER DETAILS</h4>
+                        <h4 class="modal-title" id="myModalLabel">UPDATE TICKET DETAILS</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden"  id="edit-user-id" value=""/>
+                        <input type="hidden"  id="edit-ticket-id" value=""/>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Name</label> &nbsp;&nbsp;
-                                    <label class="error" id="edit-error_name"> field is required.</label>
-                                    <label class="error" id="edit-error_name2"> name must be alphanumeric.</label>
-                                    <input class="form-control" id="edit-name" placeholder="Name" name="edit-name" type="text" autofocus>
-                                </div> 
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Email</label> &nbsp;&nbsp;
-                                    <label class="error" id="edit-error_email"> field is required.</label>
-                                    <label class="error" id="edit-error_email2"> email has already existed.</label>
-                                    <label class="error" id="edit-error_email3"> invalid email adress.</label>
-                                    <input class="form-control" id="edit-email" placeholder="E-mail" name="edit-email" type="email" autofocus>
+                                    <label>Ticket Code</label> &nbsp;&nbsp;
+                                    <label class="error" id="edit-error_ticket_code"> field is required.</label>
+                                    <label class="error" id="edit-error_ticket_code2"> ticket code has already existed.</label>
+                                    <label class="error" id="edit-error_ticket_code3"> invalid ticket code adress.</label>
+                                    <input class="form-control" id="edit-ticket_code" placeholder="Ticket code" name="edit-ticket_code" type="var" autofocus>
                                 </div> 
                             </div>
                       </div>
@@ -209,7 +171,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        <button id="editUserSubmit" type="button" class="btn btn-primary">UPDATE</button>
+                        <button id="editticketSubmit" type="button" class="btn btn-primary">UPDATE</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -220,4 +182,4 @@
        
         <!-- /#page-wrapper -->
         <?php $this->load->view('frame/footer_view')?>
-        <script src="<?=base_url()?>assets/js/view/user_list.js"></script>
+        <script src="<?=base_url()?>assets/js/view/ticket_list.js"></script>

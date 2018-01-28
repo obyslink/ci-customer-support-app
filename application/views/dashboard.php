@@ -17,7 +17,9 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="row text-center">
-                        Dashboard Content..
+                        <h3>Welcome to <strong> Olebuezi Obinna David's </strong> Dashboard </h3>
+                        <h2> Please check the menu to manage customers tickets and registrations </h2>
+                        <p> Visit my repo at <a href ="https:github.com/obyslink" target="_blank"> here </a>  or call +234813497153 to get more apps.
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->

@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?=base_url()?>assets/images/codeigniter_logo.png" type="image/x-icon">
+	<link rel="stylesheet" id="fsb-image-css" href="<?=base_url()?>assets/css/fullscreen-image.css" type="text/css" media="all">
+	<a target="_blank" href="#"><img src="<?=base_url()?>assets/images/bkgd.png" id="fsb_image"></a>
 
     <title>Customer Support Platform - Login</title>
 
@@ -57,7 +59,17 @@
 	                            <input id="login-submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
 	                        </fieldset>
 	                    </form>
-	                </div>
+					</div>
+					<div>
+					<div class="alert alert-dismissible alert-info">
+							<h5>
+							<p><strong>LOG IN DETAILS:</strong></p><br/>
+									<p>Login as Admin with email:<strong> admin@devjob.com</strong>; password: <strong>Pass</strong> </p>
+									<p>or as a First User <strong>user1@devjob.com </strong> </p>
+									<p>and Second User <strong>user2@devjob.com</strong> with password: <strong>User1234</strong></p>
+							</h5>
+						</div>
+					</div>
 	            </div>
 	        </div>
 	    </div>

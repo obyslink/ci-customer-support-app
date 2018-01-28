@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" id="fsb-image-css" href="<?=base_url()?>assets/css/fullscreen-image.css" type="text/css" media="all">
+	<a target="_blank" href="#"><img src="<?=base_url()?>assets/images/bkgd.png" id="fsb_image"></a>
 
     <title>Customer Support Platform Name</title>
 
@@ -51,7 +53,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=base_url();?>">
-                    <div class="inline"> &nbsp;Organization Name </div>
+                    <div class="inline"> &nbsp;Dev Jobs CI App by Olebuezi Obinna David </div>
                 </a>
 
             </div>

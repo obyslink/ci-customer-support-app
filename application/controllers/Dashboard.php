@@ -1,9 +1,7 @@
 <?php
 
     /******************************************
-    *      Codeigniter 3 Simple Login         *
-    *   Developer  :  rudiliucs1@gmail.com    *
-    *        Copyright © 2017 Rudi Liu        *
+    *     customer support app    *
     *******************************************/
 
 if (!defined('BASEPATH')) {

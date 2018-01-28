@@ -30,6 +30,19 @@ class Authentication_model extends CI_Model {
             return $query->result();
     }
 
+    function validate_ticket($postData){
+        $this->db->select('*');
+        $this->db->where('ticket', $postData['ticket']);
+        $this->db->where('password', md5($postData['password']));
+        $this->db->where('status', 1);
+        $this->db->from('ticket');
+        $query=$this->db->get();
+        if ($query->num_rows() == 0)
+            return false;
+        else
+            return $query->result();
+    }
+
     function change_password($postData){
         $this->load->model('admin_model');
         $validate = false;

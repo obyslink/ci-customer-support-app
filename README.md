@@ -8,8 +8,8 @@ This Customer Support Web Application is made using  PHP Framework Codeigniter 3
 * create new customer-support-app database
 * import the customer-support-app sql database which can be found in folder docs/database/customer-support-app.sql
 * set the database username to root
-* if needed, then change $config['base_url'] = 'your-base-url' and set the mailer config credential in the file
-* login as admin - email: admin@devjob.com; password: adminadmin or as a user user1@devjob.com and user2@devjob.com
+* login as admin - email: admin@devjob.com; password: Pass or as a first user user1@devjob.com and second user2@devjob.com with password User1234
+* Note: Note that this web app takes in uer roles : admin, user one and user two. It also takes in ticket roles : seller, buyer one and buyer two.
 
 
 
